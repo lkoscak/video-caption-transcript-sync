@@ -1,0 +1,20 @@
+.container {
+  background-color: #fff;
+  height: 100%;
+  border-radius: 10px;
+  padding: 2rem;
+  overflow: hidden;
+
+  .title {
+    font-weight: 600;
+    margin-bottom: .8rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    height: 90%;
+    overflow: auto;
+  }
+}

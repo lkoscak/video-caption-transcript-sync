@@ -1,0 +1,12 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 8px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &.focused {
+    background-color: rgba(78, 113, 255, 0.3);
+  }
+}

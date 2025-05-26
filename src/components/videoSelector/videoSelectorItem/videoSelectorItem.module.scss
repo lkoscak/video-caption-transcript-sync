@@ -1,0 +1,14 @@
+.item {
+  color: #fff;
+  background-color: #4e71ff;
+  opacity: 0.8;
+  padding: 0.8rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: opacity 0.25s ease-in;
+  white-space: nowrap;
+
+  &:hover {
+    opacity: 1;
+  }
+}

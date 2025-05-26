@@ -1,0 +1,43 @@
+.picker {
+  position: absolute;
+  bottom: 15%;
+  right: 0;
+  margin: auto;
+  width: fit-content;
+  color: #fff;
+  font-size: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 0.5rem;
+  border-radius: 8px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+
+  .item {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+
+    &.small {
+      font-size: 0.7rem;
+    }
+    &.large {
+      font-size: 1.5rem;
+    }
+    &.inverted {
+      background-color: rgba(256, 256, 256, 0.8);
+      color: #000;
+    }
+
+    &.selected {
+      border-color: #4e71ff;
+    }
+  }
+}
