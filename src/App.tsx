@@ -3,13 +3,15 @@ import styles from "./app.module.scss";
 import Video from "./components/video/Video";
 import { videos } from "./definitions/definitions";
 import VideoSelector from "./components/videoSelector/VideoSelector";
-import type { SRTItem, VideoSource } from "./types/types";
+import type { VideoSource } from "./types/types";
 import Transcript from "./components/transcript/Transcript";
 import srtParser2 from "srt-parser-2";
 
 const App: FC = () => {
   // 3rd party parser for SRT files
   const srtParserRef = useRef(new srtParser2());
+  // video elemnt ref
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const [videoPlaying, setVideoPlaying] = useState<VideoSource | null>(
     videos?.[0] || null
@@ -44,17 +46,24 @@ const App: FC = () => {
     },
     [videos]
   );
-  const setVideoTimeHandler = useCallback((time: number) => {
+  const updateVideoTimeHandler = useCallback((time: number) => {
     setCurrentVideoTime(time);
   }, []);
+  const setVideoTimeHandler = useCallback(
+    (time: number) => {
+      if (!videoRef.current) return;
+      videoRef.current.currentTime = time;
+    },
+    [videoRef]
+  );
 
   return (
     <main className={styles.container}>
       <section className={styles.left}>
         <Video
+          ref={videoRef}
           src={videoPlaying?.path || ""}
-          time={currentVideoTime}
-          onVideoTimeChange={setVideoTimeHandler}
+          onVideoTimeChange={updateVideoTimeHandler}
           caption={currentCaption}
         />
         <VideoSelector
