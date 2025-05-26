@@ -7,6 +7,6 @@ export const formatTimeHIS = (seconds: number) => {
 
   let result = "";
   if (+H > 0) result += `${+H}:`;
-  result += `${+H > 0 ? i : +i}:${s}`;
+  result += `${i}:${s}`;
   return result;
 };
